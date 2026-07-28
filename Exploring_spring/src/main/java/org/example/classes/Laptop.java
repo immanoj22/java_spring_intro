@@ -1,5 +1,10 @@
 package org.example.classes;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class Laptop implements  Computer{
     private String modelName;
 

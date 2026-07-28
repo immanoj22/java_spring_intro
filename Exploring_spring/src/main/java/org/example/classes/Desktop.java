@@ -1,5 +1,8 @@
 package org.example.classes;
 
+import org.springframework.stereotype.Component;
+
+@Component("desk")
 public class Desktop implements Computer{
 
     private String modelName;

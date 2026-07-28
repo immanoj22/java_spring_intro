@@ -4,7 +4,10 @@ import org.example.SampleClass.Student;
 import org.example.classes.Computer;
 import org.example.classes.Desktop;
 import org.example.classes.Human;
+import org.example.classes.Laptop;
+import org.example.config.AppConfig;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -15,7 +18,21 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        Human human=context.getBean(Human.class);
+        human.compile();
+        System.out.println(human.getAge());
+
+        //        Laptop lap=context.getBean("lap",Laptop.class);
+//        lap.compile();
+
+//        Laptop lap1=context.getBean("lap",Laptop.class);
+
+
+
+//        lap1.compile();
+//        ApplicationContext context=new ClassPathXmlApplicationContext("spring.xml");
 //        Student stu= (Student) context.getBean("student");
 //
 //        System.out.println(stu.getStudentAge());
@@ -30,9 +47,9 @@ public class App
 //        Computer c=desk;
 //        c.compile();
 
-        Human h=context.getBean("Human",Human.class);
-        System.out.println(h.getAge());
-        h.compile();
+//        Human h=context.getBean("Human",Human.class);
+//        System.out.println(h.getAge());
+//        h.compile();
 
     }
 }
